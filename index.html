@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="loading">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;600;800&display=swap" rel="stylesheet">
     <meta name="description" content="NN Минфай Трибелл — Экспертный монтажёр. Поднимаю охваты и прибыль через экспертные видео.">
     <meta name="theme-color" content="#050505">
     <title>NN Минфай Трибелл | Твой партнёр по контенту</title>
@@ -11,8 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;600;800&display=swap');
-
         :root {
             --bg: #050505;
             --accent: #8b1d1d;
@@ -20,24 +21,32 @@
             --glass: rgba(255, 255, 255, 0.02);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; cursor: default; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            cursor: default;
+            touch-action: pan-x pan-y;
+        }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg);
             color: #ffffff;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        .font-heading { font-family: 'Geist', sans-serif; letter-spacing: -0.04em; }
+        .font-heading { font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; letter-spacing: -0.04em; }
+
+        .loading {
+            overflow: hidden !important;
+            height: 100dvh !important;
+        }
 
         .loader {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: #050505;
             z-index: 100000;
             display: flex;
@@ -86,7 +95,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            opacity: 0;
         }
 
         .text-gradient {
@@ -120,8 +131,9 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid var(--border);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all(0.5s) cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            opacity: 0;
         }
         
         .video-card:hover {
@@ -155,9 +167,13 @@
             pointer-events: none;
             background: #8b1d1d;
         }
+
+        .stagger {
+            opacity: 0;
+        }
     </style>
 </head>
-<body>
+<body class="loading">
 
     <div class="loader" id="loader">
         <div class="font-heading text-xl font-bold tracking-widest animate-pulse">NN.TRIBELL</div>
@@ -184,7 +200,7 @@
 
     <main class="relative z-10">
         <section class="min-h-screen pt-40 pb-24 px-8 flex flex-col justify-center items-center text-center max-w-7xl mx-auto">
-            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-red-900/30 bg-red-950/10 text-[11px] font-bold uppercase tracking-[0.2em] text-red-400 mb-10 w-fit stagger">
+            <div class="inline-flex items-center justify-center gap-3 px-4 py-1.5 rounded-full border border-red-900/30 bg-red-950/10 text-[11px] font-bold uppercase tracking-[0.2em] text-red-400 mb-10 w-fit stagger">
                 <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_10px_#ef4444]"></span>
                 Экспертный монтажёр
             </div>
@@ -194,7 +210,7 @@
                 <span class="text-gradient">через экспертные видео</span>
             </h1>
 
-            <div class="max-w-3xl flex flex-col items-center stagger">
+            <div class="max-w-3xl flex flex-col items-center justify-center stagger">
                 <p class="text-xl md:text-2xl text-white/40 leading-relaxed font-light mb-12">
                     Монтирую контент с акцентом на боль зрителя и вирусный потенциал. Конвертирую зрителей в клиентов.
                 </p>
@@ -206,29 +222,29 @@
             <div class="bento-grid">
                 <div class="bento-item col-span-12 lg:col-span-8">
                     <h2 class="font-heading text-4xl md:text-5xl font-bold mb-8">Кто такой Минфай?</h2>
-                    <div class="space-y-4 text-[16px] text-white/60 leading-relaxed font-light max-w-2xl">
+                    <div class="space-y-4 text-[16px] text-white/60 leading-relaxed font-light max-w-2xl flex flex-col items-center">
                         <p>В 13 лет занимался перепродажей различных товаров, прокачивал сарафанку, оттачивал маркетинг</p>
                         <p>В 16 лет занимался развитием МЦА каналов, и очень зацепил монтаж — прошёл школу по монтажу Арсения Мерзлякова, изучил нишу экспертных видео </p>
                         <p>Поработал с топами инфобизнеса, такими как Альберт, Simon Gelfenbuym, be fresh и другими, занимаюсь развитием личных брендов, помогаю блогерам/экспертам конвертировать зрителей в клиентов через Reels, YouTube и TikTok</p>
                         
-                        <div class="mt-6 p-6 rounded-2xl bg-white/5 border border-white/10 text-left w-full">
+                        <div class="mt-6 p-6 rounded-2xl bg-white/5 border border-white/10 text-center w-full max-w-xl">
                             <h4 class="font-bold text-white mb-4">Результаты для тебя:</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-red-500 mt-1"></i> Больше подписчиков и удержание >70%</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-red-500 mt-1"></i> Рост лидов/продаж за счёт хуков и динамики</li>
-                                <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-red-500 mt-1"></i> Готовые видео под твою ЦА</li>
+                            <ul class="space-y-3 flex flex-col items-center">
+                                <li class="flex items-center justify-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Больше подписчиков и удержание >70%</li>
+                                <li class="flex items-center justify-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Рост лидов/продаж за счёт хуков и динамики</li>
+                                <li class="flex items-center justify-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Готовые видео под твою ЦА</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="bento-item col-span-12 lg:col-span-4 justify-center">
+                <div class="bento-item col-span-12 lg:col-span-4">
                     <div class="relative w-32 h-32 mb-8">
                         <div class="absolute inset-0 bg-red-600 blur-2xl opacity-20 animate-pulse"></div>
                         <img src="https://i.postimg.cc/Dydgr3Q8/IMG-20260405-222735-981.png" alt="Минфай" class="relative w-full h-full rounded-full object-cover border-2 border-white/10 transition-all">
                     </div>
                     <h3 class="font-heading text-2xl font-bold mb-2 uppercase tracking-tighter">Минфай Трибелл</h3>
-                    <p class="text-xs uppercase tracking-widest text-white/30 leading-relaxed mt-2">Деятельность: Развитие личных брендов через топовый монтаж экспертных видео.</p>
+                    <p class="text-xs uppercase tracking-widest text-white/30 leading-relaxed mt-2 max-w-xs">Деятельность: Развитие личных брендов через топовый монтаж экспертных видео.</p>
                 </div>
 
                 <div class="bento-item col-span-12 md:col-span-6">
@@ -254,16 +270,16 @@
                     <h3 class="font-heading text-2xl md:text-3xl font-bold">Горизонтальные видео</h3>
                     <span class="w-6 h-1.5 bg-red-600 rounded-full"></span>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <div class="video-card aspect-video">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 place-items-center">
+                    <div class="video-card aspect-video w-full">
                         <div class="video-label">Горизонт.</div>
                         <iframe class="w-full h-full" src="https://rutube.ru/play/embed/69807a63bd2a5a84fd6b38af994f2f1d/?p=_nG29-YAMoG-O9byxnE_eA" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="video-card aspect-video">
+                    <div class="video-card aspect-video w-full">
                         <div class="video-label">Горизонт.</div>
                         <iframe class="w-full h-full" src="https://rutube.ru/play/embed/57e0eab556f764b22e200844e5736a57/?p=xio4KniqTo5TLRobY0rl1A" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="video-card aspect-video bg-gradient-to-br from-white/5 to-white/0 flex flex-col items-center justify-center hover:border-red-500/50 transition-colors group">
+                    <div class="video-card aspect-video w-full bg-gradient-to-br from-white/5 to-white/0 flex flex-col items-center justify-center hover:border-red-500/50 transition-colors group">
                         <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-play text-white text-xl"></i>
                         </div>
@@ -278,60 +294,64 @@
                     <h3 class="font-heading text-2xl md:text-3xl font-bold">Вертикальные видео</h3>
                     <span class="w-6 h-1.5 bg-red-600 rounded-full"></span>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="video-card aspect-[9/16]"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/91fab0b22ff44b01a2dd4f3f204173ea/?p=pO9h2Nek3jT9aKWj2TxPrQ" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-card aspect-[9/16]"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/07687eb6b55ab78298cd1d0f7369265f/?p=iyZsiPZcRfd8Di5lWzW4Ng" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-card aspect-[9/16]"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/10927ba17eeecd3a810837794af49644/?p=YBFZy-qySEcBf469_LdJzQ" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="video-card aspect-[9/16]"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/81a7219f6bf2b2dcfd80d34a1bb783bc/?p=j2EBZ0wEJmIexnkUwUE-6Q" frameborder="0" allowfullscreen></iframe></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">
+                    <div class="video-card aspect-[9/16] w-full"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/91fab0b22ff44b01a2dd4f3f204173ea/?p=pO9h2Nek3jT9aKWj2TxPrQ" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-card aspect-[9/16] w-full"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/07687eb6b55ab78298cd1d0f7369265f/?p=iyZsiPZcRfd8Di5lWzW4Ng" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-card aspect-[9/16] w-full"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/10927ba17eeecd3a810837794af49644/?p=YBFZy-qySEcBf469_LdJzQ" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="video-card aspect-[9/16] w-full"><iframe class="w-full h-full" src="https://rutube.ru/play/embed/81a7219f6bf2b2dcfd80d34a1bb783bc/?p=j2EBZ0wEJmIexnkUwUE-6Q" frameborder="0" allowfullscreen></iframe></div>
                 </div>
             </div>
         </section>
 
         <section id="guarantee" class="py-20 px-8 max-w-7xl mx-auto">
-            <div class="bento-item flex flex-col gap-12 items-center">
-                <div class="space-y-6 max-w-3xl">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-gradient">Гарантия результата или возврат средств <i class="fa-solid fa-money-bill-wave text-red-500"></i></h2>
-                    <p class="text-white/70 leading-relaxed text-lg font-light">— Я понимаю: тебе важно, чтобы видео реально работало — набирало просмотры и цепляло аудиторию.</p>
-                    
-                    <div class="p-6 bg-red-950/20 border border-red-900/30 rounded-2xl text-center">
-                        <p class="font-bold text-red-400 mb-2">Поэтому я ввожу простое правило:</p>
-                        <p class="text-white/90">Если ролик не залетит — я верну тебе деньги</p>
+            <div class="bento-grid">
+                <div class="bento-item col-span-12 flex flex-col gap-12 items-center justify-center">
+                    <div class="space-y-6 max-w-3xl flex flex-col items-center justify-center">
+                        <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-gradient">Гарантия результата или возврат средств <i class="fa-solid fa-money-bill-wave text-red-500"></i></h2>
+                        <p class="text-white/70 leading-relaxed text-lg font-light text-center">Я понимаю: тебе важно, чтобы видео реально работало — набирало просмотры и цепляло аудиторию.</p>
+                        
+                        <div class="p-6 bg-red-950/20 border border-red-900/30 rounded-2xl text-center w-full max-w-md">
+                            <p class="font-bold text-red-400 mb-2">Поэтому я вводу простое правило:</p>
+                            <p class="text-white/90">Если ролик не залетит — я верну тебе деньги</p>
+                        </div>
+                        
+                        <div class="py-4 text-center max-w-md mx-auto">
+                            <h4 class="font-bold text-white mb-4">Условия простые:</h4>
+                            <ul class="space-y-4 text-white/70 font-light flex flex-col items-center">
+                                <li class="flex items-center gap-3 justify-center"><span class="text-red-500 font-bold">1.</span> Видео выкладывается в течение 7 дней</li>
+                                <li class="flex items-center gap-3 justify-center"><span class="text-red-500 font-bold">2.</span> Аудитория живая, без накруток</li>
+                                <li class="flex items-center gap-3 justify-center"><span class="text-red-500 font-bold">3.</span> При необходимости я бесплатно переделаю ролик</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="https://t.me/NNminfai" class="btn-main mt-6">Хочешь проверить? Напиши <i class="fa-brands fa-telegram"></i></a>
                     </div>
-                    
-                    <div class="py-4 text-left max-w-md mx-auto">
-                        <h4 class="font-bold text-white mb-4 text-center">Условия простые:</h4>
-                        <ul class="space-y-4 text-white/70 font-light">
-                            <li class="flex items-start gap-3"><span class="text-red-500 font-bold">1.</span> Видео выкладывается в течение 7 дней</li>
-                            <li class="flex items-start gap-3"><span class="text-red-500 font-bold">2.</span> Аудитория живая, без накруток</li>
-                            <li class="flex items-start gap-3"><span class="text-red-500 font-bold">3.</span> При необходимости я бесплатно переделаю ролик</li>
-                        </ul>
-                    </div>
-                    
-                    <a href="https://t.me/NNminfai" class="btn-main mt-6">Хочешь проверить? Напиши <i class="fa-brands fa-telegram"></i></a>
                 </div>
             </div>
         </section>
 
         <section id="referral" class="py-20 px-8 max-w-7xl mx-auto">
-            <div class="bento-item flex flex-col gap-12 items-center">
-                <div class="space-y-6 max-w-3xl">
-                    <div class="inline-block px-4 py-1 rounded-full border border-red-900/30 bg-red-950/20 text-xs font-bold uppercase tracking-[0.1em] text-red-500 mb-2">Партнёрка</div>
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-gradient">Реферальная программа</h2>
-                    
-                    <p class="text-2xl font-bold text-white">Приводишь клиентов — получаешь 20% от их заказа навсегда! <i class="fa-solid fa-coins text-red-500 ml-1"></i></p>
-                    
-                    <div class="mt-8 space-y-6 text-left">
-                        <div class="flex gap-5 bg-white/5 p-6 rounded-2xl border border-white/5">
-                            <div class="w-12 h-12 shrink-0 bg-red-600/10 border border-red-600/20 rounded-xl flex items-center justify-center font-bold text-red-500 text-xl">1</div>
-                            <p class="text-white/70 leading-relaxed text-sm font-light">Рекомендуй меня блогерам и экспертам, которым нужен топовый монтаж.</p>
+            <div class="bento-grid">
+                <div class="bento-item col-span-12 flex flex-col gap-12 items-center justify-center">
+                    <div class="space-y-6 max-w-3xl flex flex-col items-center justify-center">
+                        <div class="inline-block px-4 py-1 rounded-full border border-red-900/30 bg-red-950/20 text-xs font-bold uppercase tracking-[0.1em] text-red-500 mb-2">Партнёрка</div>
+                        <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4 text-gradient">Реферальная программа</h2>
+                        
+                        <p class="text-2xl font-bold text-white text-center">Приводишь клиентов — получаешь 20% от их заказа навсегда! <i class="fa-solid fa-coins text-red-500 ml-1"></i></p>
+                        
+                        <div class="mt-8 space-y-6 text-center w-full max-w-lg">
+                            <div class="flex flex-col items-center gap-3 bg-white/5 p-6 rounded-2xl border border-white/5">
+                                <div class="w-12 h-12 shrink-0 bg-red-600/10 border border-red-600/20 rounded-xl flex items-center justify-center font-bold text-red-500 text-xl">1</div>
+                                <p class="text-white/70 leading-relaxed text-sm font-light">Рекомендуй меня блогерам и экспертам, которым нужен топовый монтаж.</p>
+                            </div>
+                            <div class="flex flex-col items-center gap-3 bg-white/5 p-6 rounded-2xl border border-white/5">
+                                <div class="w-12 h-12 shrink-0 bg-red-600/10 border border-red-600/20 rounded-xl flex items-center justify-center font-bold text-red-500 text-xl">2</div>
+                                <p class="text-white/70 leading-relaxed text-sm font-light">Клиент пишет мне — я делаю монтаж — ты получаешь свой процент мгновенно!</p>
+                            </div>
                         </div>
-                        <div class="flex gap-5 bg-white/5 p-6 rounded-2xl border border-white/5">
-                            <div class="w-12 h-12 shrink-0 bg-red-600/10 border border-red-600/20 rounded-xl flex items-center justify-center font-bold text-red-500 text-xl">2</div>
-                            <p class="text-white/70 leading-relaxed text-sm font-light">Клиент пишет мне — я делаю монтаж — ты получаешь свой процент мгновенно!</p>
-                        </div>
+                        
+                        <a href="https://t.me/NNminfai" class="btn-main mt-6">Подробности в Telegram</a>
                     </div>
-                    
-                    <a href="https://t.me/NNminfai" class="btn-main mt-6">Подробности в Telegram</a>
                 </div>
             </div>
         </section>
@@ -339,7 +359,7 @@
         <section class="py-40 px-8 text-center bg-gradient-to-b from-black to-[#0a0202]">
             <p class="text-xs uppercase tracking-[0.5em] text-white/20 mb-8">Ready to start?</p>
             <h2 class="font-heading text-5xl md:text-8xl font-bold mb-16">Твой партнёр <br> <span class="text-gradient">по контенту</span></h2>
-            <div class="flex flex-col items-center gap-8">
+            <div class="flex flex-col items-center justify-center gap-8">
                 <a href="https://t.me/NNminfai" class="text-3xl md:text-5xl font-heading font-bold hover:text-red-500 transition-all">
                     @NNminfai <i class="fa-brands fa-telegram"></i>
                 </a>
@@ -349,9 +369,9 @@
     </main>
 
     <footer class="py-16 px-8 border-t border-white/5 relative z-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-[10px] uppercase tracking-[0.4em] text-white/20 font-bold">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-[10px] uppercase tracking-[0.4em] text-white/20 font-bold text-center">
             <p>© 2026 NN Минфай Трибелл</p>
-            <div class="flex gap-12">
+            <div class="flex gap-12 justify-center">
                 <a href="https://www.tiktok.com/@nntribell" class="hover:text-white transition-colors">TikTok</a>
                 <a href="https://www.instagram.com/minfaitrib" class="hover:text-white transition-colors">Instagram</a>
                 <a href="https://youtube.com/@nnminfai" class="hover:text-white transition-colors">YouTube</a>
@@ -366,6 +386,7 @@
 
     <script>
         const lenis = new Lenis();
+        lenis.stop();
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => {
             lenis.raf(time * 1000);
@@ -379,6 +400,9 @@
                     duration: 1, 
                     onComplete: () => {
                         document.getElementById("loader").style.display = "none";
+                        document.documentElement.classList.remove('loading');
+                        document.body.classList.remove('loading');
+                        lenis.start();
                         initAnimations();
                     }
                 });
@@ -387,9 +411,54 @@
 
         function initAnimations() {
             gsap.registerPlugin(ScrollTrigger);
-            gsap.from(".stagger", { y: 50, opacity: 0, duration: 1.4, stagger: 0.1, ease: "expo.out" });
-            gsap.from(".bento-item", { scrollTrigger: { trigger: ".bento-grid", start: "top 85%" }, y: 40, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" });
-            gsap.from(".portfolio-block", { scrollTrigger: { trigger: "#portfolio", start: "top 75%" }, y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+            
+            gsap.fromTo(".stagger", 
+                { y: 80, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 1.8, stagger: 0.2, ease: "power4.out" }
+            );
+
+            document.querySelectorAll('.bento-grid').forEach(grid => {
+                const items = grid.querySelectorAll('.bento-item');
+                if (items.length > 0) {
+                    gsap.fromTo(items, 
+                        { x: 300, opacity: 0, scale: 0.9 }, 
+                        { 
+                            scrollTrigger: {
+                                trigger: grid,
+                                start: "top 80%"
+                            },
+                            x: 0, 
+                            opacity: 1, 
+                            scale: 1, 
+                            duration: 1.8, 
+                            stagger: 0.25, 
+                            ease: "back.out(1.5)" 
+                        }
+                    );
+                }
+            });
+
+            document.querySelectorAll('.portfolio-block').forEach(block => {
+                const cards = block.querySelectorAll('.video-card');
+                if (cards.length > 0) {
+                    gsap.fromTo(cards, 
+                        { y: 200, opacity: 0, scale: 0.85 }, 
+                        { 
+                            scrollTrigger: {
+                                trigger: block,
+                                start: "top 70%"
+                            },
+                            y: 0, 
+                            opacity: 1, 
+                            scale: 1, 
+                            duration: 1.8, 
+                            stagger: 0.2, 
+                            ease: "back.out(1.7)" 
+                        }
+                    );
+                }
+            });
+
             gsap.to("#orb1", { x: 100, y: 50, duration: 10, repeat: -1, yoyo: true, ease: "power1.inOut" });
             gsap.to("#orb2", { x: -100, y: -50, duration: 12, repeat: -1, yoyo: true, ease: "power1.inOut" });
         }
