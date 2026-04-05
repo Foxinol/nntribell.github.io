@@ -435,7 +435,7 @@
                 if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
                 ctx.fill();
                 for (let j = i + 1; j < pts.length; j++) {
                     const p2 = pts[j];
@@ -444,7 +444,7 @@
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(139, 29, 29, ${0.12 * (1 - d / 120)})`;
+                        ctx.strokeStyle = `rgba(139, 29, 29, ${0.05 * (1 - d / 120)})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
