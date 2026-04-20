@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="loading" lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+    <meta content="Хочешь видео мирового уровня? Вместе сделаем из твоих — качество Голливуда! Экспертный монтажёр NN Минфай Трибелл." name="description"/>
+    <meta content="#000000" name="theme-color"/>
+    <title>NN Минфай Трибелл | Видео мирового уровня</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    
+    <style>
+        /* 
+         * Typography: SF Pro Display / Helvetica (Apple Ecosystem Style)
+         * Vibe: Hollywood Minimalism, Premium Dark, White-Grey Gradients
+         */
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --surface-hover: #111111;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --border: rgba(255, 255, 255, 0.08);
+            --glass: rgba(255, 255, 255, 0.02);
+            --glow: rgba(255, 255, 255, 0.15);
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica');
+            font-weight: 100 900;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            cursor: default;
+            touch-action: pan-x pan-y;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Typography Utilities */
+        .tracking-tight { letter-spacing: -0.04em; }
+        .tracking-widest { letter-spacing: 0.15em; }
+
+        .loading {
+            overflow: hidden !important;
+            height: 100dvh !important;
+        }
+
+        /* Premium Loader */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 100000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .loader-text {
+            background: linear-gradient(180deg, #ffffff 0%, #666666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 2.5rem;
+            letter-spacing: 0.25em;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; filter: drop-shadow(0 0 20px rgba(255,255,255,0.2)); }
+            50% { opacity: 0.3; filter: drop-shadow(0 0 0px rgba(255,255,255,0)); }
+        }
+
+        /* Background Effects: White-Grey Gradients & Grid */
+        .bg-fx-container {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 0%, #0a0a0a 0%, #000 80%);
+        }
+
+        .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px;
+            opacity: 0.4;
+            mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
+            -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
+        }
+
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.25;
+            mix-blend-mode: screen;
+            will-change: transform;
+        }
+
+        .glow-1 {
+            width: 70vw;
+            height: 70vw;
+            background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+            top: -35vw;
+            left: -15vw;
+        }
+
+        .glow-2 {
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, #666666 0%, transparent 70%);
+            bottom: -20vw;
+            right: -15vw;
+        }
+
+        /* UI Components */
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #777777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #e0e0e0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* MASSIVE CTA BUTTON */
+        .btn-massive {
+            background: #ffffff;
+            color: #000000;
+            padding: 1.5rem 4rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn-massive::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn-massive:hover {
+            background: transparent;
+            color: #ffffff;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-massive:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .btn-massive {
+                padding: 1.25rem 2.5rem;
+                font-size: 1.25rem;
+            }
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        a, button, iframe { cursor: pointer; }
+
+        /* Bento & Cards */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: linear-gradient(180deg, rgba(25,25,25,0.4) 0%, rgba(0,0,0,0.8) 100%);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: border-color 0.4s ease, transform 0.4s ease;
+        }
+
+        .bento-item:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .video-card {
+            background: var(--surface);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .video-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px) scale(1.02);
+            z-index: 10;
+        }
+
+        .video-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #fff;
+        }
+
+        /* Animation Classes */
+        .stagger-up { opacity: 0; transform: translateY(40px); }
+        .fade-in { opacity: 0; }
+    </style>
+</head>
+<body class="loading" id="top">
+
+    <!-- Preloader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">NN.TRIBELL</div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-fx-container">
+        <div class="grid-overlay"></div>
+        <div class="ambient-glow glow-1" id="glow1"></div>
+        <div class="ambient-glow glow-2" id="glow2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
+            <a href="#top" class="text-2xl font-bold tracking-tight text-white hover:opacity-80 transition-opacity">
+                NN.TRIBELL
+            </a>
+            <div class="hidden md:flex items-center gap-10 text-sm font-semibold uppercase tracking-widest text-gray-300">
+                <a href="#portfolio" class="hover:text-white transition-colors cursor-pointer">Портфолио</a>
+                <a href="#referral" class="hover:text-white transition-colors cursor-pointer">Партнёрка</a>
+            </div>
+            <a href="https://t.me/NNminfai" target="_blank" class="btn-outline">
+                @NNminfai
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen pt-40 pb-20 px-6 flex flex-col justify-center items-center text-center max-w-5xl mx-auto">
+            <div class="badge stagger-up mb-8">
+                <span class="w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_10px_#fff]"></span>
+                Экспертный монтажёр
+            </div>
+            
+            <h1 class="text-5xl md:text-[80px] lg:text-[95px] font-bold leading-[1.05] tracking-tight mb-10 stagger-up">
+                Хочешь видео<br/>
+                <span class="text-gradient pb-2">мирового уровня?</span>
+            </h1>
+            
+            <div class="max-w-3xl flex flex-col items-center justify-center stagger-up mb-20">
+                <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 leading-relaxed font-light">
+                    Вместе сделаем из твоих —<br class="hidden sm:block"> 
+                    качество Голливуда!
+                </p>
+            </div>
+
+            <!-- Scroll indicator -->
+            <a href="#portfolio" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity fade-in cursor-pointer">
+                <span class="text-xs uppercase tracking-widest text-white font-semibold">Scroll</span>
+                <div class="w-[1px] h-16 bg-gradient-to-b from-white via-gray-500 to-transparent"></div>
+            </a>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="py-32 px-6 max-w-7xl mx-auto" id="portfolio">
+            <div class="text-center mb-24 stagger-up">
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Работы</h2>
+                <p class="text-gray-400 uppercase tracking-widest text-sm font-semibold">
+                    Кейсы, которые приносят результат
+                </p>
+            </div>
+
+            <!-- Horizontal Videos -->
+            <div class="mb-32 portfolio-block">
+                <div class="flex items-center justify-center gap-6 mb-16">
+                    <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
+                    <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-200">Горизонтальные видео</h3>
+                    <div class="h-[1px] w-20 bg-gradient-to-l from-transparent to-gray-500"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 place-items-center">
+                    <div class="video-card aspect-video w-full">
+                        <div class="video-label">Горизонт.</div>
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/69807a63bd2a5a84fd6b38af994f2f1d/?p=_nG29-YAMoG-O9byxnE_eA" loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card aspect-video w-full">
+                        <div class="video-label">Горизонт.</div>
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/57e0eab556f764b22e200844e5736a57/?p=xio4KniqTo5TLRobY0rl1A" loading="lazy"></iframe>
+                    </div>
+                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent">
+                        <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-lg">
+                            <i class="fa-solid fa-play text-3xl opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-transform"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-400 group-hover:text-white transition-colors tracking-wide">
+                            Тут могло быть ваше видео
+                        </h3>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Vertical Videos -->
+            <div class="portfolio-block">
+                <div class="flex items-center justify-center gap-6 mb-16">
+                    <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
+                    <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-200">Вертикальные видео</h3>
+                    <div class="h-[1px] w-20 bg-gradient-to-l from-transparent to-gray-500"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
+                    <div class="video-card aspect-[9/16] w-full max-w-[320px]">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/91fab0b22ff44b01a2dd4f3f204173ea/?p=pO9h2Nek3jT9aKWj2TxPrQ" loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card aspect-[9/16] w-full max-w-[320px]">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/07687eb6b55ab78298cd1d0f7369265f/?p=iyZsiPZcRfd8Di5lWzW4Ng" loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card aspect-[9/16] w-full max-w-[320px]">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/81a7219f6bf2b2dcfd80d34a1bb783bc/?p=j2EBZ0wEJmIexnkUwUE-6Q" loading="lazy"></iframe>
+                    </div>
+                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[320px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent">
+                        <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                            <i class="fa-solid fa-plus text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
+                        </div>
+                        <span class="text-sm text-gray-400 uppercase tracking-widest font-semibold group-hover:text-white transition-colors">Добавить проект</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ENHANCED MASSIVE CTA BUTTON -->
+            <div class="mt-32 flex justify-center stagger-up w-full">
+                <a href="https://t.me/NNminfai" class="btn-massive group" target="_blank">
+                    Обсудить проект
+                    <i class="fa-solid fa-arrow-right text-2xl transform -rotate-45 group-hover:rotate-0 transition-transform"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Referral Section -->
+        <section class="py-24 px-6 max-w-6xl mx-auto" id="referral">
+            <div class="bento-grid">
+                <div class="bento-item col-span-12 stagger-up">
+                    <div class="badge mb-8">
+                        Партнёрка
+                    </div>
+                    <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-gradient pb-2">
+                        Реферальная программа
+                    </h2>
+                    <p class="text-2xl md:text-3xl text-gray-200 font-medium mb-16 max-w-3xl mx-auto">
+                        Приводишь клиентов — получаешь 20% от их заказа навсегда!
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mb-14">
+                        <div class="bg-white/5 border border-white/10 p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-white/10 transition-colors shadow-2xl">
+                            <div class="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-[0_0_15px_rgba(255,255,255,0.1)]">1</div>
+                            <p class="text-gray-300 text-lg leading-relaxed font-medium">
+                                Рекомендуй меня блогерам и экспертам, которым нужен топовый монтаж видео
+                            </p>
+                        </div>
+                        <div class="bg-white/5 border border-white/10 p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-white/10 transition-colors shadow-2xl">
+                            <div class="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-[0_0_15px_rgba(255,255,255,0.1)]">2</div>
+                            <p class="text-gray-300 text-lg leading-relaxed font-medium">
+                                Клиент пишет мне — я делаю монтаж — ты получаешь свой процент мгновенно!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://t.me/NNminfai" class="btn-outline text-lg py-4 px-10" target="_blank">
+                        Подробности в Telegram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-40 px-6 text-center border-t border-white/5 relative overflow-hidden" id="contact">
+            <!-- Subtle background glow for footer, FIXED INLINE STYLE FOR GRADIENT -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none" style="background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.05) 0%, transparent 70%);"></div>
+            
+            <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-8 stagger-up">
+                Ready to start?
+            </p>
+            <h2 class="text-6xl md:text-[100px] font-bold tracking-tight mb-16 stagger-up leading-none">
+                Твой партнёр<br/>
+                <span class="text-gradient pb-4">по контенту</span>
+            </h2>
+            <div class="flex flex-col items-center justify-center gap-6 stagger-up">
+                <a href="https://t.me/NNminfai" target="_blank" class="text-5xl md:text-7xl font-bold text-white hover:text-gray-400 transition-colors flex items-center gap-6 group">
+                    @NNminfai
+                    <i class="fa-brands fa-telegram text-gray-500 group-hover:text-blue-400 transition-colors transform group-hover:scale-110"></i>
+                </a>
+                <p class="text-gray-400 text-sm tracking-widest uppercase mt-8 font-medium">
+                    Напиши мне, обсудим твою стратегию
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 relative z-10 bg-[#050505]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-semibold text-center">
+            <p>© 2026 NN Минфай Трибелл</p>
+            <div class="flex gap-10 justify-center text-sm">
+                <a href="https://www.tiktok.com/@nntribell" target="_blank" class="hover:text-white transition-colors cursor-pointer">TikTok</a>
+                <a href="https://www.instagram.com/minfaitrib" target="_blank" class="hover:text-white transition-colors cursor-pointer">Instagram</a>
+                <a href="https://youtube.com/@nnminfai" target="_blank" class="hover:text-white transition-colors cursor-pointer">YouTube</a>
+            </div>
+            <p>Design by Type | @execuxc</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    
+    <script>
+        // Smooth Scrolling setup
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        lenis.stop(); // Stop until loader finishes
+        
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Preloader Logic & Animation Initialization
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById("loader");
+                
+                // Fade out loader
+                gsap.to(loader, {
+                    opacity: 0, 
+                    duration: 0.8, 
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        loader.style.display = "none";
+                        document.documentElement.classList.remove('loading');
+                        document.body.classList.remove('loading');
+                        lenis.start();
+                        initAnimations();
+                    }
+                });
+            }, 1500); // Premium wait time for impact
+        });
+
+        function initAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero Stagger Animation 
+            gsap.to("#hero .stagger-up", {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
+
+            gsap.to(".fade-in", {
+                opacity: 0.6,
+                duration: 2,
+                delay: 1,
+                ease: "power2.out"
+            });
+
+            // Scroll trigger animations for sections
+            gsap.utils.toArray('.stagger-up:not(#hero .stagger-up)').forEach(elem => {
+                gsap.to(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+            });
+
+            // Parallax effect for ambient glows
+            gsap.to("#glow1", {
+                yPercent: 30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1
+                }
+            });
+
+            gsap.to("#glow2", {
+                yPercent: -30,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1
+                }
+            });
+        }
+    </script>
+</body>
+</html>
