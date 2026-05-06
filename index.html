@@ -7,9 +7,10 @@
     <meta content="#000000" name="theme-color"/>
     <title>NN Минфай Трибелл | Видео мирового уровня</title>
     
-    <script src="https://cdn.tailwindcss.com">
-    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Подключаем единый шрифт Inter, чтобы буквы не плясали -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet"/>
     
     <style>
         :root {
@@ -32,7 +33,8 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            /* Теперь везде Inter — буквы одного характера и размера */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             overflow-x: hidden;
@@ -251,6 +253,7 @@
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* Плавное появление будет управляться анимацией stagger */
         }
         
         .video-card:hover {
@@ -342,7 +345,7 @@
                 </p>
             </div>
 
-            <div class="mb-32 portfolio-block">
+            <div class="mb-32 portfolio-block" data-animate="stagger">
                 <div class="flex items-center justify-center gap-6 mb-16">
                     <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
                     <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-200">Горизонтальные видео</h3>
@@ -350,12 +353,17 @@
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 place-items-center">
-                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 1 (заменено) -->
+                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 1 (новое, первое место) -->
                     <div class="video-card aspect-video w-full stagger-up">
                         <div class="video-label">Горизонт.</div>
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/deff699a0fefa6cda7fc0179859d44f5/?p=U2WsOaViISXoSlvAozKl9g" loading="lazy"></iframe>
                     </div>
-                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 2 (заглушка) -->
+                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 2 (старое, второе место) -->
+                    <div class="video-card aspect-video w-full stagger-up">
+                        <div class="video-label">Горизонт.</div>
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c9f9af649925f1bcf1946a586646ac0d/?p=pW56yV7VR9EvsFwowg-QQA" loading="lazy"></iframe>
+                    </div>
+                    <!-- Заглушка -->
                     <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent stagger-up">
                         <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-lg">
                             <i class="fa-solid fa-play text-3xl opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-transform"></i>
@@ -367,7 +375,7 @@
                 </div>
             </div>
 
-            <div class="portfolio-block">
+            <div class="portfolio-block" data-animate="stagger">
                 <div class="flex items-center justify-center gap-6 mb-16">
                     <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
                     <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-200">Вертикальные видео</h3>
@@ -375,7 +383,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
-                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 1 -->
+                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 1 (остаётся) -->
                     <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/e14edc39c83e6490d5ae1892777f05f2/?p=RsCnagzKMmYY1z24Vw25eA" loading="lazy"></iframe>
                     </div>
@@ -383,11 +391,11 @@
                     <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c3f12544954da8b532eb8c6096f9e8ea/?p=qlMfvznDZo87ctZONuK8oA" loading="lazy"></iframe>
                     </div>
-                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 3 -->
+                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 3 (остаётся) -->
                     <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/2db2b37762939aeb786396076a6dbf79/?p=Z-uDlZ8L01-zqrFTzNUQ1w" loading="lazy"></iframe>
                     </div>
-                    <!-- ВЕРТИКАЛЬНАЯ ЗАГЛУШКА -->
+                    <!-- Заглушка -->
                     <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[320px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent stagger-up">
                         <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
                             <i class="fa-solid fa-plus text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
@@ -475,12 +483,9 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
-    </script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     
     <script>
         const lenis = new Lenis({
@@ -525,6 +530,7 @@
         function initAnimations() {
             gsap.registerPlugin(ScrollTrigger);
             
+            // Герой
             gsap.to("#hero .stagger-up", {
                 y: 0,
                 opacity: 1,
@@ -540,7 +546,28 @@
                 ease: "power2.out"
             });
 
-            gsap.utils.toArray('.stagger-up:not(#hero .stagger-up)').forEach(elem => {
+            // Обработка блоков портфолио с аккуратным появлением
+            document.querySelectorAll('[data-animate="stagger"]').forEach(block => {
+                const items = block.querySelectorAll('.stagger-up');
+                if (items.length) {
+                    gsap.set(items, { opacity: 0, y: 40 }); // начальное состояние
+                    gsap.to(items, {
+                        scrollTrigger: {
+                            trigger: block,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        },
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        stagger: 0.12, // карточки всплывают одна за другой
+                        ease: "power3.out"
+                    });
+                }
+            });
+
+            // Остальные элементы (реферальная программа и т.д.)
+            gsap.utils.toArray('.stagger-up:not(#hero .stagger-up):not([data-animate] .stagger-up)').forEach(elem => {
                 gsap.to(elem, {
                     scrollTrigger: {
                         trigger: elem,
@@ -553,6 +580,7 @@
                 });
             });
 
+            // Параллакс фона
             gsap.to("#glow1", {
                 yPercent: 30,
                 ease: "none",
