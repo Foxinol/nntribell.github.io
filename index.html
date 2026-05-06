@@ -7,7 +7,8 @@
     <meta content="#000000" name="theme-color"/>
     <title>NN Минфай Трибелл | Видео мирового уровня</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
     
     <style>
@@ -22,12 +23,6 @@
             --glow: rgba(255, 255, 255, 0.15);
         }
 
-        @font-face {
-            font-family: 'SF Pro Display';
-            src: local('SF Pro Display'), local('Helvetica Neue'), local('Helvetica');
-            font-weight: 100 900;
-        }
-
         * { 
             margin: 0; 
             padding: 0; 
@@ -37,7 +32,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             overflow-x: hidden;
@@ -355,11 +350,13 @@
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 place-items-center">
-                    <div class="video-card aspect-video w-full">
+                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 1 (заменено) -->
+                    <div class="video-card aspect-video w-full stagger-up">
                         <div class="video-label">Горизонт.</div>
-                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c9f9af649925f1bcf1946a586646ac0d/?p=pW56yV7VR9EvsFwowg-QQA" loading="lazy"></iframe>
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/deff699a0fefa6cda7fc0179859d44f5/?p=U2WsOaViISXoSlvAozKl9g" loading="lazy"></iframe>
                     </div>
-                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent">
+                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 2 (заглушка) -->
+                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent stagger-up">
                         <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-lg">
                             <i class="fa-solid fa-play text-3xl opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-transform"></i>
                         </div>
@@ -378,16 +375,20 @@
                 </div>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
-                    <div class="video-card aspect-[9/16] w-full max-w-[320px]">
+                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 1 -->
+                    <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/e14edc39c83e6490d5ae1892777f05f2/?p=RsCnagzKMmYY1z24Vw25eA" loading="lazy"></iframe>
                     </div>
-                    <div class="video-card aspect-[9/16] w-full max-w-[320px]">
-                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/5ca8977bedd638a1d965392a73ac6316/?p=Rrfe4Eyv4WeEEAQsoz0z-g" loading="lazy"></iframe>
+                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 2 (заменено) -->
+                    <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c3f12544954da8b532eb8c6096f9e8ea/?p=qlMfvznDZo87ctZONuK8oA" loading="lazy"></iframe>
                     </div>
-                    <div class="video-card aspect-[9/16] w-full max-w-[320px]">
+                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 3 -->
+                    <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/2db2b37762939aeb786396076a6dbf79/?p=Z-uDlZ8L01-zqrFTzNUQ1w" loading="lazy"></iframe>
                     </div>
-                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[320px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent">
+                    <!-- ВЕРТИКАЛЬНАЯ ЗАГЛУШКА -->
+                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[320px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent stagger-up">
                         <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
                             <i class="fa-solid fa-plus text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
                         </div>
@@ -474,9 +475,12 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+    </script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js">
+    </script>
     
     <script>
         const lenis = new Lenis({
